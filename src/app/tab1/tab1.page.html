@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col text-center>
+      <ion-label text-center color="secondary" class="ion-margin">Список файлов</ion-label>
+      <h6 text-center>Вы можете добавить файлы в свою библиотеку или посмотреть их<br> *Файлы не относящиеся к
+        медиафайлам
+        можно скачать по ссылке</h6>
+        <h6>{{log}}</h6>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- <ion-label>{{this.file.dataDirectory}}</ion-label> -->
+  <!-- <ion-button (click)="getInfo()">Default</ion-button>
+  <ion-button (click)="openWithSystemBrowser('https://ionicframework.com/')">1</ion-button>
+  <ion-button (click)="getFiles()">1</ion-button> -->
+
+  <!-- <ion-button (click)="getFiles()">1</ion-button> -->
+
+  <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
+    Toggle Infinite Scroll
+  </ion-button> -->
+
+  <ion-list>
+    <ion-item *ngFor="let item of yandexFiles">
+      <ion-icon *ngIf="item.media_type =='audio'" name="musical-notes"></ion-icon>
+      <ion-icon *ngIf="item.media_type =='video'" name="videocam"></ion-icon>
+      <ion-icon *ngIf="item.media_type !== 'audio' && item.media_type !== 'video'" name="document"></ion-icon>
+      <ion-label class="ion-padding">
+        <h2>{{item.name}}</h2>
+        <p>Дата: {{item.created | date: 'dd.MM.yyyy HH:mm:ss'}}</p>
+        <p>Размер: {{item.size | filesize}}</p>
+        <ion-button center *ngIf="item.media_type == 'audio' || item.media_type == 'video'" color="secondary"
+          (click)="preview(item.name, item.file)">Предпросмотр</ion-button>
+      </ion-label>
+      <ion-button color="dark" *ngIf="item.media_type !== 'audio' && item.media_type !== 'video'"
+        (click)="openWithSystemBrowser(item.public_url)">Скачать</ion-button>
+      <ion-button color="success" *ngIf="item.media_type == 'audio' || item.media_type == 'video'"
+        (click)="addLibrary(item)">Добавить</ion-button>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- <ion-button (click)="openFileHandler()"></ion-button> -->
+
+  <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Загрузка файлов...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+</ion-content>
+
+
+
+<!-- TODO:
+1. Загрузка файла в локальное хранилище и вопроизведение оттуда
+2. Ссылка на при нажатии на файл прямо в яндекс диск
+3. Встроить видео и аудио плееры
+-->

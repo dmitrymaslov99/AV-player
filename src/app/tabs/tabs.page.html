@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        {{this.guiService.name}}
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="userSetting($event)">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1">
+      <ion-icon name="cloud"></ion-icon>
+      <ion-label>Яндекс.Диск</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon name="videocam"></ion-icon>
+      <ion-label>Видео</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <ion-icon name="musical-notes"></ion-icon>
+      <ion-label>Музыка</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

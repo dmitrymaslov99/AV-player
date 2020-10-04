@@ -14,14 +14,17 @@
   </ion-row>
   <ion-list>
     <ion-item *ngFor="let item of this.guiService.audioLibrary">
-      <ion-icon name="musical-notes"></ion-icon>
+<!--      <ion-icon name="musical-notes"></ion-icon>-->
+      <ion-icon src="./assets/musical-notes.svg"></ion-icon>
       <ion-label class="ion-padding">
         <h2>{{item.name}}</h2>
         <p>Дата: {{item.created | date: 'dd.MM.yyyy HH:mm:ss'}}</p>
       </ion-label>
       <ion-button color="primary" (click)="play(item)">Вопроизвести</ion-button>
       <ion-button color="danger" (click)="delete(item)">
-        <ion-icon name="close-circle"></ion-icon>
+<!--        <ion-icon name="close-circle"></ion-icon>-->
+        <ion-icon src="./assets/close-circle.svg"></ion-icon>
+
       </ion-button>
     </ion-item>
   </ion-list>
@@ -48,20 +51,25 @@
           <ion-fab-button class="skip-btn" color="primary" [disabled]="!is_ready || !is_in_play"
             (click)="controlSeconds('back')">
             &nbsp;&nbsp;
-            <ion-icon name="play-skip-back"></ion-icon>
-            &nbsp;&nbsp;
+<!--            <ion-icon name="play-skip-back"></ion-icon>-->
+            &nbsp;&nbsp;        <ion-icon src="./assets/play-skip-back.svg"></ion-icon>
+
           </ion-fab-button>
         </ion-col>
         <ion-col>
           <!-- Play/Pause -->
           <ion-fab-button class="play-pause-btn" (click)="playRecording()" color="primary" *ngIf="!is_playing"
             [disabled]="!is_ready">
-            <ion-icon name="play"></ion-icon>
+<!--            <ion-icon name="play"></ion-icon>-->
+            &nbsp;&nbsp;        <ion-icon src="./assets/play.svg"></ion-icon>
+
           </ion-fab-button>
 
           <ion-fab-button class="play-pause-btn" (click)="pausePlayRecording()" color="secondary" *ngIf="is_playing"
             [disabled]="!is_ready">
-            <ion-icon name="pause"></ion-icon>
+<!--            <ion-icon name="pause"></ion-icon>-->
+              &nbsp;&nbsp;        <ion-icon src="./assets/pause.svg"></ion-icon>
+
           </ion-fab-button>
         </ion-col>
         <ion-col>
@@ -69,8 +77,10 @@
           <ion-fab-button class="skip-btn" color="primary" [disabled]="!is_ready || !is_in_play"
             (click)="controlSeconds('forward')">
             &nbsp;&nbsp;
-            <ion-icon name="play-skip-forward"></ion-icon>
-            &nbsp;&nbsp;
+<!--            <ion-icon name="play-skip-forward"></ion-icon>-->
+              &nbsp;&nbsp;        <ion-icon src="./assets/play-skip-forward.svg"></ion-icon>
+
+              &nbsp;&nbsp;
           </ion-fab-button>
         </ion-col>
       </ion-row>

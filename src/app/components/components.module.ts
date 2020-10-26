@@ -3,10 +3,10 @@ import { PopoverComponent } from './popover/popover.component'
 
 @NgModule({
     declarations: [
-        PopoverComponent
+        // PopoverComponent
     ],
     exports: [
-        PopoverComponent
+        // PopoverComponent
     ]
 })
 export class ComponentsModule { }

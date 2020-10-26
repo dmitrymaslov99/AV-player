@@ -241,4 +241,11 @@ export class Tab3Page {
     //   s
     // ); // and we add Number s to the string (converting it to String as well)
   }
+  delete(item: any) {
+    const index = this.guiService.audioLibrary.indexOf(item, 0);
+    console.log(index)
+    if (index > -1) {
+      this.guiService.audioLibrary.splice(index, 1);
+    }
+  }
 }

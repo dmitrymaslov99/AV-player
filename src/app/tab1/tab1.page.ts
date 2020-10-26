@@ -13,6 +13,7 @@ import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native
 import {NgFormSelectorWarning} from '@angular/forms';
 import {FileOpener} from '@ionic-native/file-opener/ngx';
 import {LoadingController, AlertController} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ import {LoadingController, AlertController} from '@ionic/angular';
     templateUrl: 'tab1.page.html',
     styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
     @ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
 
     // private pathFile: string = this.file.dataDirectory + 'files/';
@@ -40,7 +41,8 @@ export class Tab1Page {
         private fileOpener: FileOpener,
         private loadingController: LoadingController,
         public alertController: AlertController,
-        private platform: Platform
+        private platform: Platform,
+        private route: ActivatedRoute,
     ) {
         this.platform.ready().then(() => {
             if (this.platform.is('ios')) {
@@ -55,9 +57,20 @@ export class Tab1Page {
     }
 
     ionViewWillEnter() {
+        // const token = /access_token=([^&]+)/.exec(document.location.hash)[1];
+        // console.log('this.route', token);
+        // this.api.token = token;
         this.guiService.name = 'Яндекс.Диск';
         this.getFiles();
     }
+
+    ngOnInit() {
+        // this.route.queryParams.subscribe(params => {
+        //     console.log('params', params)
+        // });
+
+    }
+
 
     async getInfo() {
         console.log('http');

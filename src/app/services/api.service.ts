@@ -1,27 +1,42 @@
-import { Injectable } from '@angular/core';
-import { RestService } from './rest.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {RestService} from './rest.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApiService extends RestService {
-  headers: HttpHeaders;
-  constructor(public http: HttpClient) {
-    super(http)
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'OAuth AgAAAAArMNXHAAYUNL_cMMYSxUa1plUaWTPC5Yc'
-    })
-  }
+    headers2: HttpHeaders;
+    public token;
 
-  async getInfo() {
-    return this.get('https://cloud-api.yandex.net/v1/disk/', this.headers).toPromise();
-  }
+    constructor(public http: HttpClient) {
+        super(http);
+        this.headers2 = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `OAuth AgAAAAArMNXHAAYUNL_cMMYSxUa1plUaWTPC5Yc`
+        });
+    }
+    // AgAAAABH16KuAAYUNIDGF4ugUEOcnAphuq7QNeE
+    // AgAAAABH16KuAAYUNIDGF4ugUEOcnAphuq7QNeE
+    // AgAAAABH16KuAAYUNIDGF4ugUEOcnAphuq7QNeE
+    // AgAAAAArMNXHAAYUNL_cMMYSxUa1plUaWTPC5Yc
+    // AgAAAABH16KuAAYUNIDGF4ugUEOcnAphuq7QNeE
+    // AgAAAABH16KuAAYUNIDGF4ugUEOcnAphuq7QNeE
+    async getInfo() {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `OAuth ${this.token}`
+        });
+        return this.get('https://cloud-api.yandex.net/v1/disk/', headers).toPromise();
+    }
 
-  async getFiles()
-  {
-    return this.get('https://cloud-api.yandex.net/v1/disk/resources/files', this.headers).toPromise();
-  }
+    async getFiles() {
+
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `OAuth ${this.token}`
+        });
+        return this.get('https://cloud-api.yandex.net/v1/disk/resources/files', headers).toPromise();
+    }
 
 }

@@ -30,9 +30,9 @@
 
   <ion-list>
     <ion-item *ngFor="let item of yandexFiles">
-      <ion-icon *ngIf="item.media_type =='audio'" name="musical-notes"></ion-icon>
-      <ion-icon *ngIf="item.media_type =='video'" name="videocam"></ion-icon>
-      <ion-icon *ngIf="item.media_type !== 'audio' && item.media_type !== 'video'" name="document"></ion-icon>
+      <ion-icon *ngIf="item.media_type =='audio'" src="./assets/musical-notes.svg"></ion-icon>
+      <ion-icon *ngIf="item.media_type =='video'" src="./assets/videocam.svg"></ion-icon>
+      <ion-icon *ngIf="item.media_type !== 'audio' && item.media_type !== 'video'" src="./assets/document-attach-outline.svg"></ion-icon>
       <ion-label class="ion-padding">
         <h2>{{item.name}}</h2>
         <p>Дата: {{item.created | date: 'dd.MM.yyyy HH:mm:ss'}}</p>

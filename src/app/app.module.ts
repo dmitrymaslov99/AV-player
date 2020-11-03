@@ -18,6 +18,7 @@ import {StreamingMedia, StreamingVideoOptions} from '@ionic-native/streaming-med
 import {Media} from '@ionic-native/media/ngx';
 
 import {DatePipe} from '@angular/common';
+import {VideoPlayer} from '@ionic-native/video-player/ngx';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {DatePipe} from '@angular/common';
         BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule
     ],
     providers: [
+        VideoPlayer,
         StatusBar,
         SplashScreen,
         InAppBrowser,

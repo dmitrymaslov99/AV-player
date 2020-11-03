@@ -23,7 +23,8 @@ export class AutorizationPage implements OnInit {
     open_link() {
         console.log('open_link');
         // window.open('https://oauth.yandex.ru/authorize?response_type=token&client_id=1858432844d746e4b96125bf28938539');
-        let url = 'https://oauth.yandex.ru/authorize?response_type=token&client_id=1858432844d746e4b96125bf28938539';
+        // let url = 'https://oauth.yandex.ru/authorize?response_type=token&client_id=1858432844d746e4b96125bf28938539';
+        let url = 'https://oauth.yandex.ru/authorize?response_type=token&client_id=596d09471138412f8cd6499c6c090f22';
 
         let browserRef = window.open(url, '_blank', 'location=yes');
         browserRef.addEventListener('loadstart', (event: any) => {
@@ -32,9 +33,9 @@ export class AutorizationPage implements OnInit {
             console.log('access_token', token);
             if (token) {
                 this.api.token = token;
-                console.log('this.api.token', this.api.token)
+                console.log('this.api.token', this.api.token);
                 browserRef.close();
-                this.router.navigate(['tabs/tab1'])
+                this.router.navigate(['tabs/tab1']);
             }
         });
         // let browser = this.inAppBrowser.create(url, '_self', 'location=yes');
